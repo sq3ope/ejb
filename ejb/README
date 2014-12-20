@@ -1,10 +1,22 @@
-To start service:
+Tested with jboss-as-7.1.1.Final
 
-1. Build project: 
+1. Build project:
 mvn clean install
 
-2. Deploy to JBoss7 (JBoss should already be running):
+2. Add user to JBoss7 server:
+- run $JBOSS_HOME/bin/add-user.sh
+- choose b) Application User (application-users.properties)
+- choose ApplicationRealm
+- Username : remoteuser
+- Password: remote123$%
+- do not add roles
+
+3. Start server ($JBOSS_HOME/bin/standalone.bat)
+
+4. Deploy to JBoss7 (JBoss should already be running):
 cd ear
 mvn jboss-as:deploy
 
-Tested with jboss-as-7.1.1.Final
+5. Start client:
+cd ejb-client
+mvn exec:exec
