@@ -13,10 +13,22 @@
     <version>1.0-SNAPSHOT</version>
     <name>ejb-api</name>
     <url>http://maven.apache.org</url>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
     <dependencies>
+        <!-- Import the Common Annotations API (JSR-250), we use provided scope
+                    as the API is included in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Import the EJB 3.1 API, we use provided scope as the API is included
+            in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

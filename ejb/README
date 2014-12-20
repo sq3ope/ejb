@@ -1,0 +1,10 @@
+To start service:
+
+1. Build project: 
+mvn clean install
+
+2. Deploy to JBoss7 (JBoss should already be running):
+cd ear
+mvn jboss-as:deploy
+
+Tested with jboss-as-7.1.1.Final

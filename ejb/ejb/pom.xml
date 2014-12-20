@@ -17,14 +17,19 @@
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- Internal -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ejb-api</artifactId>
+        </dependency>
+        <!-- /Internal -->
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -34,10 +39,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${version.compiler.plugin}</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
@@ -45,16 +48,8 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <ejbVersion>3.1</ejbVersion>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.1</version>
+                <version>${version.dependency.plugin}</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
