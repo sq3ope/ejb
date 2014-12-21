@@ -10,9 +10,9 @@ import java.util.concurrent.CyclicBarrier;
 
 public class App {
     /* The app name is the EAR name of the deployed EJB without .ear suffix. */
-    private static String APPNAME = "ear-1.0-SNAPSHOT";
+    private static String APPNAME = "MyApplication";
     /* The module name is the JAR name of the deployed EJB without the .jar suffix */
-    private static String MODULENAME = "ejb-1.0-SNAPSHOT";
+    private static String MODULENAME = "MyModule";
     /*
      * AS7 allows each deployment to have an (optional) distinct name. This
      * can be an empty string if distinct name is not specified.
