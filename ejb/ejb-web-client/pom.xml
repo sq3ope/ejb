@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>learn.ejb</groupId>
+        <artifactId>ejb-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>learn.ejb</groupId>
+    <artifactId>ejb-web-client</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>ejb-web-client Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>ejb-web-client</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>${version.org.jboss.as.plugins.maven.plugin}</version>
+                <configuration>
+                    <filename>${project.build.finalName}.war</filename>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
