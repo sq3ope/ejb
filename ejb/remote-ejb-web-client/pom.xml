@@ -11,13 +11,25 @@
     </parent>
 
     <groupId>learn.ejb</groupId>
-    <artifactId>ejb-web-client</artifactId>
+    <artifactId>remote-ejb-web-client</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>ejb-web-client Maven Webapp</name>
+    <name>remote-ejb-web-client Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
+        <!-- Internal -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ejb-api</artifactId>
+        </dependency>
+        <!-- /Internal -->
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -27,7 +39,7 @@
     </dependencies>
 
     <build>
-        <finalName>ejb-web-client</finalName>
+        <finalName>remote-ejb-web-client</finalName>
 
         <plugins>
             <plugin>

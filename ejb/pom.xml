@@ -13,7 +13,8 @@
         <module>ejb</module>
         <module>ear</module>
         <module>ejb-client</module>
-        <module>ejb-web-client</module>
+        <module>local-ejb-web-client</module>
+        <module>remote-ejb-web-client</module>
     </modules>
 
     <properties>

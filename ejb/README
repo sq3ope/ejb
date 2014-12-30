@@ -1,5 +1,7 @@
 Tested with jboss-as-7.1.1.Final
 
+*** Preparation ***
+
 1. Build project:
 mvn clean install
 
@@ -11,12 +13,30 @@ mvn clean install
 - Password: remote123$%
 - do not add roles
 
-3. Start server ($JBOSS_HOME/bin/standalone.bat)
+3. Copy whole server to new directory - that will be our second instance
 
-4. Deploy to JBoss7 (JBoss should already be running):
+4. Introduce changes in instances configuration, as they are in jboss[1,2]-config dirs
+
+5. Start both instances ($JBOSS_HOME/bin/standalone.bat)
+
+4. Deploy to first instance:
 cd ear
 mvn jboss-as:deploy
 
-5. Start client:
+5. Deploy to second instance:
+cd remote-ejb-web-client
+mvn jboss-as:deploy -Djboss-as.port=10099
+
+10099 is standard managenent port (9999) + 100 (second instance has port offset of 100)
+
+*** Test cases ***
+
+1. To test EJB call from a standalone client:
 cd ejb-client
 mvn exec:exec
+
+2. To test local EJB call from servlet:
+http://localhost:8080/local-ejb-web-client/localServlet
+
+3. To test remote EJB call from servlet:
+http://localhost:8180/remote-ejb-web-client/remoteServlet

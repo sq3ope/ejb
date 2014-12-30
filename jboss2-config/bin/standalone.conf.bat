@@ -70,4 +70,7 @@ rem set "JAVA_OPTS=%JAVA_OPTS% -Xrunjdwp:transport=dt_shmem,address=jboss,server
 rem # Use JBoss Modules lockless mode
 rem set "JAVA_OPTS=%JAVA_OPTS% -Djboss.modules.lockless=true"
 
+set "JAVA_OPTS=%JAVA_OPTS% -Djboss.node.name=nodetwo"
+set "JAVA_OPTS=%JAVA_OPTS% -Djboss.socket.binding.port-offset=100"
+
 :JAVA_OPTS_SET

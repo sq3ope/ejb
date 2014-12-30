@@ -77,7 +77,7 @@ public class App {
         /* The EJB bean implementation class name */
         String beanName = "StatelessServiceBean";
         /* Fully qualified remote interface name */
-        String interfaceName = "learn.ejb.StatelessService";
+        String interfaceName = "learn.ejb.StatelessServiceRemote";
 
         return "ejb:" + APPNAME + "/" + MODULENAME + "/" + DISTINCTNAME
                 + "/" + beanName + "!" + interfaceName;

@@ -1,8 +1,5 @@
 package learn.ejb;
 
-import javax.ejb.Remote;
-
-@Remote
 public interface StatelessService {
     void deposit(double amount);
     String printAccountDetails();

@@ -3,7 +3,7 @@ package learn.ejb;
 import javax.ejb.Stateless;
 
 @Stateless
-public class StatelessServiceBean implements StatelessService {
+public class StatelessServiceBean implements StatelessServiceRemote, StatelessServiceLocal {
     private String name;
     private double balance;
 

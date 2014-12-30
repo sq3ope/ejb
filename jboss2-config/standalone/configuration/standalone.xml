@@ -38,6 +38,11 @@
                     <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
                 </authentication>
             </security-realm>
+            <security-realm name="ejb-security-realm">
+                <server-identities>
+                    <secret value="cmVtb3RlMTIzJCU="/>
+                </server-identities>
+            </security-realm>
         </security-realms>
         <management-interfaces>
             <native-interface security-realm="ManagementRealm">
@@ -48,6 +53,7 @@
             </http-interface>
         </management-interfaces>
     </management>
+
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:1.1">
             <console-handler name="CONSOLE">
@@ -213,6 +219,14 @@
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
         <subsystem xmlns="urn:jboss:domain:remoting:1.1">
             <connector name="remoting-connector" socket-binding="remoting" security-realm="ApplicationRealm"/>
+            <outbound-connections>
+                <remote-outbound-connection name="remote-ejb-connection" outbound-socket-binding-ref="remote-ejb" username="remoteuser" security-realm="ejb-security-realm">
+                    <properties>
+                        <property name="SASL_POLICY_NOANONYMOUS" value="false"/>
+                        <property name="SSL_ENABLED" value="false"/>
+                    </properties>
+                </remote-outbound-connection>
+            </outbound-connections>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:1.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
@@ -301,6 +315,9 @@
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
             <remote-destination host="localhost" port="25"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="remote-ejb">
+            <remote-destination host="localhost" port="4447"/>
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
